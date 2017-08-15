@@ -10,8 +10,8 @@ int Solution::maximumGap(const vector<int> &A) {
         return 0;
     }
     
-    vector<int> forMin(A.size(), -1);
-    vector<int> forMax(A.size(), -1);
+//     vector<int> forMin(A.size(), -1);
+//     vector<int> forMax(A.size(), -1);
     
     int max_dist = 0, mini = INT_MAX, maxi = INT_MIN;
     int gap = 0, bucket = 0, ind = 0;
@@ -24,6 +24,10 @@ int Solution::maximumGap(const vector<int> &A) {
             maxi = A[i];
         }
     }
+    // the size of the bucket should be this else in some cases the bucket array goes out of memory 
+     
+    vector<int> forMin(maxi-mini, -1);
+    vector<int> forMax(maxi-mini, -1);
     
     gap = maxi - mini;
     gap = gap/(A.size()-1);
